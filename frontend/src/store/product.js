@@ -60,6 +60,7 @@ export const useProductStore = create((set) => ({
     }
     // Update the product in the state without needing a refetch
     set((state) => ({
+      // Replace the old product with the updated one
         products: state.products.map((product) =>
             product._id === pid ? data.data : product
         )

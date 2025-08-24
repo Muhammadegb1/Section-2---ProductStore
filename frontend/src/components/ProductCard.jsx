@@ -10,7 +10,7 @@ import { useState } from 'react';
 
 
 const ProductCard = ({product}) => {
-    const [updatedProduct, setUpdatedProduct] = useState({product});
+    const [updatedProduct, setUpdatedProduct] = useState(product);
 
     const textColor = useColorModeValue('gray.800', 'whiteAlpha.900');
     const bg = useColorModeValue('white', 'gray.800');
@@ -41,17 +41,35 @@ const ProductCard = ({product}) => {
         }
     }
     const handleUpdateProduct = async(pid, updatedProduct) => {
-        await updateProduct(pid, updatedProduct);
+        const {success, message} = await updateProduct(pid, updatedProduct);
         onClose();
+        if(!success) {
+            toast({
+                title: 'Error',
+                description: message,
+                status: 'error',
+                duration: 3000,
+                isClosable: true,
+            });
+        }
+        else {
+            toast({
+                title: 'Success',
+                description: message,
+                status: 'success',
+                duration: 3000,
+                isClosable: true,
+            });
+        }
     }
   return (  
     <Box
-    shadow='lg'
-    rounded='lg'
-    overflow='hidden'
-    transition='all 0.3s'
-    _hover={{ transform: 'translateY(-5px)', shadow: 'xl' }}
-    bg={bg}
+        shadow='lg'
+        rounded='lg'
+        overflow='hidden'
+        transition='all 0.3s'
+        _hover={{ transform: 'translateY(-5px)', shadow: 'xl' }}
+        bg={bg}
     >
         <Image src={product.image} alt={product.name} h={48} w='full' objectFit='cover' />
 
@@ -72,7 +90,6 @@ const ProductCard = ({product}) => {
 
     <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-
             <ModalContent>
                 <ModalHeader>Update Product</ModalHeader>
                 <ModalCloseButton />
@@ -100,6 +117,9 @@ const ProductCard = ({product}) => {
                 <ModalFooter>
                     <Button colorScheme='blue' mr={3} onClick={() => handleUpdateProduct(product._id, updatedProduct)}>
                         Update
+                    </Button>
+                    <Button variant='ghost' onClick={onClose}>
+                        Cancel
                     </Button>
                 </ModalFooter>
 
