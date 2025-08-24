@@ -12,11 +12,11 @@
   "author": "",
   "license": "ISC",
   "type": "module",
-"dependencies": {
+  "dependencies": {
     "cross-env": "^10.0.0",
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "mongoose": "^8.5.1"
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "mongoose": "^8.17.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
