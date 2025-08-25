@@ -27,7 +27,3 @@ app.listen(PORT, () => {
   connectDB();
   console.log('Server Started at http://localhost:' + PORT);
 });
-
-
-// mhmadmig2001
-// 5ghl8bK0ayslaMKd
