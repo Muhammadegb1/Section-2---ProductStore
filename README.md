@@ -2,7 +2,7 @@
 A modern full-stack e-commerce web application built with React.js, Node.js, Express.js, and MongoDB, featuring a clean and responsive UI with Chakra UI. 
 This project demonstrates the complete flow of a web app—from front-end interface to back-end API, including error handling and deployment.
 
-![Demo App](https://productstore-e29y.onrender.com/)**
+**Demo App** https://productstore-e29y.onrender.com
 <img width="1635" height="908" alt="image" src="<img width="1752" height="924" alt="image" src="https://github.com/user-attachments/assets/b9702c11-c0a6-44dc-92b4-ce51a07b0269" />
 
 
